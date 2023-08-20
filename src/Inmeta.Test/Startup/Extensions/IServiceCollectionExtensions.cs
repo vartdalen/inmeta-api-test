@@ -181,7 +181,7 @@ namespace Inmeta.Test.Startup.Extensions
         {
             services.AddDbContext<OrdersDbContext>(options =>
             {
-                var connectionString = config.GetConnectionString("DbConnectionString");
+                var connectionString = config.GetConnectionString("DbConnectionStringInmetaTest");
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
             });
 
