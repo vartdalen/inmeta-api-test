@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   build-and-push:
@@ -48,7 +48,7 @@ jobs:
           registry-login-server: modaschicas.azurecr.io
           registry-username: ${{ secrets.ACR_USERNAME }}
           registry-password: ${{ secrets.ACR_PASSWORD }}
-          name: "modaschicas-products"
+          name: "orders"
           location: "westeurope"
           restart-policy: "OnFailure"
           memory: 1
