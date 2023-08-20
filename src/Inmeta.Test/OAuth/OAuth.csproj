@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Description>Server side OAuth2.0 authorization_code redemption for hybrid Cookie and Bearer schemes</Description>
+  	</PropertyGroup>
+
+	<ItemGroup>
+  		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.7" />
+		<PackageReference Include="Refit" Version="6.3.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Services\Services.csproj" />
+	</ItemGroup>
+
+</Project>
