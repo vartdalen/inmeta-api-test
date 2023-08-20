@@ -48,7 +48,7 @@ jobs:
           registry-login-server: modaschicas.azurecr.io
           registry-username: ${{ secrets.ACR_USERNAME }}
           registry-password: ${{ secrets.ACR_PASSWORD }}
-          name: "orders"
+          name: "modaschicas-products"
           location: "westeurope"
           restart-policy: "OnFailure"
           memory: 1
