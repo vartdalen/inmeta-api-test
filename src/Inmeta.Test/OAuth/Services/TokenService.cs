@@ -22,7 +22,7 @@ namespace Inmeta.Test.OAuth.Services
         {
             var googleSigningKeys = await SigningKeys(_config["AppSettings:OAuth:Google:ConfigurationUri"]);
             var microsoftSigningKeys = await SigningKeys(_config["AppSettings:OAuth:Microsoft:ConfigurationUri"]);
-            var modaschicasKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Secrets:OAuth:Inmeta.Test:SigningKey"]!));
+            var modaschicasKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Secrets:OAuth:InmetaTest:SigningKey"]!));
             var signingKeys = googleSigningKeys
                 .Concat(microsoftSigningKeys)
                 .Append(modaschicasKey)
@@ -32,10 +32,10 @@ namespace Inmeta.Test.OAuth.Services
 
         public string WriteJwt(IEnumerable<Claim> claims, DateTimeOffset expires)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Secrets:OAuth:Inmeta.Test:SigningKey"]!));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Secrets:OAuth:InmetaTest:SigningKey"]!));
             var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var newToken = new JwtSecurityToken(
-                issuer: _config["AppSettings:OAuth:Inmeta.Test:Issuer"],
+                issuer: _config["AppSettings:OAuth:InmetaTest:Issuer"],
                 claims: claims,
                 expires: expires.UtcDateTime,
                 signingCredentials: signingCredentials
@@ -63,7 +63,7 @@ namespace Inmeta.Test.OAuth.Services
                 {
                     _config["AppSettings:OAuth:Google:Issuer"],
                     $"{_config["AppSettings:OAuth:Microsoft:Issuer"]}/{_config["AppSettings:OAuth:Microsoft:TenantId"]}/v2.0",
-                    _config["AppSettings:OAuth:Inmeta.Test:Issuer"]
+                    _config["AppSettings:OAuth:InmetaTest:Issuer"]
                 },
                 ValidateAudience = true,
                 ValidAudiences = new string?[]

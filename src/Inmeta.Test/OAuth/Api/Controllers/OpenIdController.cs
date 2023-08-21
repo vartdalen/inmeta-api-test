@@ -29,7 +29,7 @@ namespace Inmeta.Test.OAuth.Api.Controllers
         {
             var metadata = new
             {
-                issuer = _config["AppSettings:OAuth:Inmeta.Test:Issuer"],
+                issuer = _config["AppSettings:OAuth:InmetaTest:Issuer"],
                 token_endpoint = _config["AppSettings:OAuth:TokenUri"],
                 scopes_supported = new string[] { "openid", "email", "profile" },
                 response_types_supported = new string[] { "token id_token", "token" },

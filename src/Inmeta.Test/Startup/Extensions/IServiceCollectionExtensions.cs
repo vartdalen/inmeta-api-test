@@ -145,12 +145,12 @@ namespace Inmeta.Test.Startup.Extensions
                 })
                 .AddJwtBearer("Bearer", options =>
                 {
-                    options.Authority = config["AppSettings:OAuth:Inmeta.Test:Issuer"];
+                    options.Authority = config["AppSettings:OAuth:InmetaTest:Issuer"];
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuer = true,
                         ValidateAudience = true,
-                        ValidIssuer = config["AppSettings:OAuth:Inmeta.Test:Issuer"],
+                        ValidIssuer = config["AppSettings:OAuth:InmetaTest:Issuer"],
                         ValidAudiences = new string[]
                         {
                             config["AppSettings:OAuth:Google:Web:ClientId"]!,
@@ -158,7 +158,7 @@ namespace Inmeta.Test.Startup.Extensions
 							config["AppSettings:OAuth:Microsoft:Web:ClientId"]!,
 					        config["AppSettings:OAuth:Microsoft:Android:ClientId"]!,
 						},
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Secrets:OAuth:Inmeta.Test:SigningKey"]!))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Secrets:OAuth:InmetaTest:SigningKey"]!))
                     };
                 });
         }
